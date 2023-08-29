@@ -1,0 +1,33 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{%block title%}All Posts{% endblock %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            <div class="container-md border my-2">
+                <div class="row">
+                    <div class="col">
+                        <label for="post_area" class="form-label">New Post</label>
+                        <textarea class="form-control" id="post_area" name = 'body' ></textarea>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col" align = 'right'>
+                        <input type="submit" value="post" class="btn btn-primary">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    {%endif%}
+    <div class="body-index">
+
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="{% static 'network/index.js' %}"></script>
+{% endblock %}

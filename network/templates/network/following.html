@@ -1,0 +1,13 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{%block title%}Following{% endblock %}
+
+{% block body %}
+
+<div id="body-following" class="my-3"></div>
+{% endblock %}
+
+{% block script %}
+<script type="module" src="{% static 'network/following.js' %}"></script>
+{% endblock %}

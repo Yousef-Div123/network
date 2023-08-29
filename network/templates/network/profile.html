@@ -1,0 +1,42 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{%block title%}Profile{% endblock %}
+
+{% block body %}
+<h1 class="mx-2 username" id="username-{{username}}">
+    {{username}}
+    {% if user.username != username and user.is_authenticated%}
+        {% if followed_by_current_user%}
+            <span class="material-symbols-outlined" id='follow_button'style="font-size: xx-large; cursor:pointer">
+                person_off
+            </span>
+        {% else %}
+            <span class="material-symbols-outlined" id='follow_button'style="font-size: xx-large; cursor:pointer">
+                person_add
+            </span>
+
+        {% endif %}
+    {% endif %}
+</h1>
+<div class="container-fluid border-bottom border-5">
+    <div class="row">
+        <div class="col-2">
+            <h5 id="followings">Following:{{followings}}</h3>    
+        </div>
+        <div class="col-2">
+            <h5 id="followers">Followers:{{followers}}</h3>
+        </div>
+    </div>
+</div>
+
+<div id="body-profile" class="my-3" data-pages="1">
+
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="{% static 'network/profile.js' %}"></script>
+{% endblock %}
