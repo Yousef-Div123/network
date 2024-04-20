@@ -117,7 +117,6 @@ def get_following_post(request, page_num):
 
 
 @api_view(['POST'])
-@login_required
 def like_post(request, post_id):
     try:
         post = Post.objects.get(id = post_id)
